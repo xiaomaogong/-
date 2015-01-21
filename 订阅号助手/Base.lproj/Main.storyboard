@@ -29,7 +29,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="OkH-Td-3m6"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="add">
+                                <state key="normal" image="add">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -41,7 +41,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="1xj-z3-rAa"/>
                                 </constraints>
-                                <state key="normal" title="Button2" image="play">
+                                <state key="normal" image="play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -53,7 +53,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="F2k-I4-N6f"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="next">
+                                <state key="normal" image="next">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -65,7 +65,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="fjE-67-A0D"/>
                                 </constraints>
-                                <state key="normal" title="Button1" image="previous">
+                                <state key="normal" image="previous">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
