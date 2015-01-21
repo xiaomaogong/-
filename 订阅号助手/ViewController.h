@@ -10,6 +10,19 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITableView *songTableView;
+
+- (IBAction)addASong:(id)sender;
+
+- (IBAction)outputFavirateSongs:(id)sender;
+
+- (IBAction)locatePositionOfSong:(id)sender;
+
+- (IBAction)playSong:(id)sender;
+
+- (IBAction)playPreviousSong:(id)sender;
+
+- (IBAction)playNextSong:(id)sender;
 
 @end
 
