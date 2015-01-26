@@ -24,8 +24,8 @@
                                     <action selector="locatePositionOfSong:" destination="vXZ-lx-hvc" eventType="valueChanged" id="FCk-Ii-uQe"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jyw-b6-RTn">
-                                <rect key="frame" x="16" y="20" width="87" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jyw-b6-RTn">
+                                <rect key="frame" x="16" y="20" width="32" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="OkH-Td-3m6"/>
                                 </constraints>
@@ -60,18 +60,6 @@
                                     <action selector="playNextSong:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xrD-mv-rEP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCj-54-VJ7">
-                                <rect key="frame" x="222" y="550" width="25" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="fjE-67-A0D"/>
-                                </constraints>
-                                <state key="normal" image="previous">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playPreviousSong:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hHu-UD-oaw"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0X-si-tTe">
                                 <rect key="frame" x="548" y="20" width="36" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -89,6 +77,18 @@
                                     <constraint firstAttribute="height" constant="388" id="03x-XQ-D2x"/>
                                 </constraints>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCj-54-VJ7">
+                                <rect key="frame" x="222" y="550" width="25" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="fjE-67-A0D"/>
+                                </constraints>
+                                <state key="normal" image="previous">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPreviousSong:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hHu-UD-oaw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
