@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import "View/CustomIOS7AlertView.h"
+
+@interface ViewController : UIViewController<CustomIOS7AlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *songTableView;
 

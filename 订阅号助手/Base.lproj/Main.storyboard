@@ -34,6 +34,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addASong:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xal-Bx-uxp"/>
+                                    <action selector="lauchDialog:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="h2J-zT-qeT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXm-AL-Q3h">
