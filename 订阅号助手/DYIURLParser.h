@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @protocol DYURLParserDelegate <NSObject>
 -(void)parse;
--(void)populateData;
+-(void)populateData:(BOOL) isSuccessfull data:(NSString *) data;
+-(NSString *)GetURL;
 @end
 
-@interface DYIURLParser : NSObject
--(void) Parse:(NSString *) url;
+@interface DYIURLParser : NSObject<UIWebViewDelegate>
+-(void) Parse:(id<DYURLParserDelegate>) callBackDelegates;
 @end
