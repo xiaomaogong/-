@@ -15,12 +15,15 @@
 		DF3F8BD71A669DC700C7D0A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF3F8BD61A669DC700C7D0A4 /* Images.xcassets */; };
 		DF3F8BDA1A669DC700C7D0A4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3F8BD81A669DC700C7D0A4 /* LaunchScreen.xib */; };
 		DF3F8BE61A669DC700C7D0A4 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3F8BE51A669DC700C7D0A4 /* _____Tests.m */; };
+		DF54837F1A79E5100061524F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF54837E1A79E5100061524F /* MainViewController.m */; };
+		DF5483821A79FD920061524F /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5483811A79FD920061524F /* SidebarViewController.m */; };
 		DFB3BB6A1A6EA2680075626D /* DYPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB3BB691A6EA2680075626D /* DYPlayer.m */; };
 		DFB3BB6E1A6EA38B0075626D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFB3BB6C1A6EA38B0075626D /* Model.xcdatamodeld */; };
 		DFB3BB711A6EA4E10075626D /* DYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB3BB701A6EA4E10075626D /* DYArticle.m */; };
 		DFB3BB741A6EAFD20075626D /* DYIURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB3BB731A6EAFD20075626D /* DYIURLParser.m */; };
 		DFE59C6C1A77C689004233FA /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C6B1A77C689004233FA /* NSMutableArray+QueueAdditions.m */; };
 		DFEAAB3F1A7744AE0054719D /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEAAB3E1A7744AE0054719D /* CustomIOS7AlertView.m */; };
+		DFFFB0C21A793EE000CC53CD /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFFFB0C11A793EE000CC53CD /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,10 @@
 		DF3F8BDF1A669DC700C7D0A4 /* 订阅号助手Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "订阅号助手Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3F8BE41A669DC700C7D0A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF3F8BE51A669DC700C7D0A4 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
+		DF54837D1A79E5100061524F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		DF54837E1A79E5100061524F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		DF5483801A79FD920061524F /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
+		DF5483811A79FD920061524F /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
 		DFB3BB681A6EA2680075626D /* DYPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYPlayer.h; sourceTree = "<group>"; };
 		DFB3BB691A6EA2680075626D /* DYPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYPlayer.m; sourceTree = "<group>"; };
 		DFB3BB6D1A6EA38B0075626D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -59,6 +66,8 @@
 		DFE59C6B1A77C689004233FA /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
 		DFEAAB3D1A7744AE0054719D /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomIOS7AlertView.h; path = View/CustomIOS7AlertView.h; sourceTree = "<group>"; };
 		DFEAAB3E1A7744AE0054719D /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomIOS7AlertView.m; path = View/CustomIOS7AlertView.m; sourceTree = "<group>"; };
+		DFFFB0C01A793EE000CC53CD /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = Library/SWRevealViewController.h; sourceTree = "<group>"; };
+		DFFFB0C11A793EE000CC53CD /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = Library/SWRevealViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +109,9 @@
 		DF3F8BC51A669DC700C7D0A4 /* 订阅号助手 */ = {
 			isa = PBXGroup;
 			children = (
+				DF5483801A79FD920061524F /* SidebarViewController.h */,
+				DF5483811A79FD920061524F /* SidebarViewController.m */,
+				DFFFB0BF1A793EAC00CC53CD /* Segue */,
 				DFEAAB401A7744BB0054719D /* Views */,
 				DFB3BB6B1A6EA2DF0075626D /* DataAccess */,
 				DFB3BB641A6E9EDE0075626D /* Player */,
@@ -113,6 +125,8 @@
 				DF3F8BD81A669DC700C7D0A4 /* LaunchScreen.xib */,
 				DF3F8BCD1A669DC700C7D0A4 /* _____.xcdatamodeld */,
 				DF3F8BC61A669DC700C7D0A4 /* Supporting Files */,
+				DF54837D1A79E5100061524F /* MainViewController.h */,
+				DF54837E1A79E5100061524F /* MainViewController.m */,
 			);
 			path = "订阅号助手";
 			sourceTree = "<group>";
@@ -180,6 +194,15 @@
 				DFEAAB3E1A7744AE0054719D /* CustomIOS7AlertView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		DFFFB0BF1A793EAC00CC53CD /* Segue */ = {
+			isa = PBXGroup;
+			children = (
+				DFFFB0C01A793EE000CC53CD /* SWRevealViewController.h */,
+				DFFFB0C11A793EE000CC53CD /* SWRevealViewController.m */,
+			);
+			name = Segue;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF5483821A79FD920061524F /* SidebarViewController.m in Sources */,
 				DFEAAB3F1A7744AE0054719D /* CustomIOS7AlertView.m in Sources */,
 				DFE59C6C1A77C689004233FA /* NSMutableArray+QueueAdditions.m in Sources */,
 				DF3F8BCC1A669DC700C7D0A4 /* AppDelegate.m in Sources */,
@@ -289,7 +313,9 @@
 				DF3F8BD21A669DC700C7D0A4 /* ViewController.m in Sources */,
 				DFB3BB6E1A6EA38B0075626D /* Model.xcdatamodeld in Sources */,
 				DF3F8BC91A669DC700C7D0A4 /* main.m in Sources */,
+				DF54837F1A79E5100061524F /* MainViewController.m in Sources */,
 				DFB3BB6A1A6EA2680075626D /* DYPlayer.m in Sources */,
+				DFFFB0C21A793EE000CC53CD /* SWRevealViewController.m in Sources */,
 				DFB3BB711A6EA4E10075626D /* DYArticle.m in Sources */,
 				DFB3BB741A6EAFD20075626D /* DYIURLParser.m in Sources */,
 			);

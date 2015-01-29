@@ -13,6 +13,7 @@
 @interface ViewController : UIViewController<CustomIOS7AlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *songTableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 - (IBAction)addASong:(id)sender;
 
