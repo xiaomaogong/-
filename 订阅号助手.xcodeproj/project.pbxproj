@@ -23,6 +23,7 @@
 		DFB3BB741A6EAFD20075626D /* DYIURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB3BB731A6EAFD20075626D /* DYIURLParser.m */; };
 		DFE59C6C1A77C689004233FA /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C6B1A77C689004233FA /* NSMutableArray+QueueAdditions.m */; };
 		DFEAAB3F1A7744AE0054719D /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEAAB3E1A7744AE0054719D /* CustomIOS7AlertView.m */; };
+		DFF4D7EE1A7A9194002E58E5 /* DYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF4D7ED1A7A9194002E58E5 /* DYSettingViewController.m */; };
 		DFFFB0C21A793EE000CC53CD /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFFFB0C11A793EE000CC53CD /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,8 @@
 		DFE59C6B1A77C689004233FA /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
 		DFEAAB3D1A7744AE0054719D /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomIOS7AlertView.h; path = View/CustomIOS7AlertView.h; sourceTree = "<group>"; };
 		DFEAAB3E1A7744AE0054719D /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomIOS7AlertView.m; path = View/CustomIOS7AlertView.m; sourceTree = "<group>"; };
+		DFF4D7EC1A7A9194002E58E5 /* DYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSettingViewController.h; sourceTree = "<group>"; };
+		DFF4D7ED1A7A9194002E58E5 /* DYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSettingViewController.m; sourceTree = "<group>"; };
 		DFFFB0C01A793EE000CC53CD /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = Library/SWRevealViewController.h; sourceTree = "<group>"; };
 		DFFFB0C11A793EE000CC53CD /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = Library/SWRevealViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +94,8 @@
 		DF3F8BBA1A669DC700C7D0A4 = {
 			isa = PBXGroup;
 			children = (
+				DFF4D7EC1A7A9194002E58E5 /* DYSettingViewController.h */,
+				DFF4D7ED1A7A9194002E58E5 /* DYSettingViewController.m */,
 				DF3F8BC51A669DC700C7D0A4 /* 订阅号助手 */,
 				DF3F8BE21A669DC700C7D0A4 /* 订阅号助手Tests */,
 				DF3F8BC41A669DC700C7D0A4 /* Products */,
@@ -317,6 +322,7 @@
 				DFB3BB6A1A6EA2680075626D /* DYPlayer.m in Sources */,
 				DFFFB0C21A793EE000CC53CD /* SWRevealViewController.m in Sources */,
 				DFB3BB711A6EA4E10075626D /* DYArticle.m in Sources */,
+				DFF4D7EE1A7A9194002E58E5 /* DYSettingViewController.m in Sources */,
 				DFB3BB741A6EAFD20075626D /* DYIURLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
