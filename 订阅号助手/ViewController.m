@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #import "SWRevealViewController.h"
 
+#import "DYArticle.h"
+#import "DYIURLParser.h"
+
 #define INPUT_WEBPATH_SAVE      0
 #define INPUT_WEBPATh_CANCEL    1
 
@@ -17,7 +20,9 @@
 @end
 
 @implementation ViewController
-
+{
+    DYIURLParser* parser;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
    
@@ -30,6 +35,8 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    parser = [DYIURLParser defaultInstance];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,10 +74,10 @@
     [alertView setDelegate:self];
     
     // You may use a Block, rather than a delegate.
-    [alertView setOnButtonTouchUpInside:^(CustomIOS7AlertView *alertView, int buttonIndex) {
-        NSLog(@"Block: Button at position %d is clicked on alertView %d.", buttonIndex, (int)[alertView tag]);
-        //[alertView close];
-    }];
+//    [alertView setOnButtonTouchUpInside:^(CustomIOS7AlertView *alertView, int buttonIndex) {
+//        NSLog(@"Block: Button at position %d is clicked on alertView %d.", buttonIndex, (int)[alertView tag]);
+//        //[alertView close];
+//    }];
     
     [alertView setUseMotionEffects:true];
     
@@ -80,9 +87,14 @@
 
 - (void)customIOS7dialogButtonTouchUpInside: (CustomIOS7AlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
 {
-    NSLog(@"Delegate: Button at position %d is clicked on alertView %d.", (int)buttonIndex, (int)[alertView tag]);
+//    NSLog(@"Delegate: Button at position %d is clicked on alertView %d.", (int)buttonIndex, (int)[alertView tag]);
+    UITextView* tv  = ((UITextView *)alertView.containerView.subviews[1]);
+    if(!tv.hasText)
+        return;
+
     switch (buttonIndex) {
         case INPUT_WEBPATH_SAVE:
+            [self onSaveBittonClick:tv.text];
             break;
         case INPUT_WEBPATh_CANCEL:
             break;
@@ -92,6 +104,16 @@
     }
     [alertView close];
 }
+
+-(void) onSaveBittonClick:(NSString *) url{
+    DYArticle* da = [DYArticle initWithUpdateSelector:^(DYArticle * result) {
+        //Update UI logic here when data is back
+        [[[UIAlertView new] initWithTitle:result.IsSuccess ? @"成功结果": @"失败结果" message:result.arrcontent[0] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+    }];
+    da.url = url;
+    [parser Parse:da];
+}
+
 
 - (UIView *)createDemoView
 {

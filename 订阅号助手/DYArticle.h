@@ -8,13 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "DYIURLParser.h"
 
 
-@interface DYArticle : NSManagedObject
+
+@interface DYArticle : NSManagedObject<DYURLParserDelegate>
+
+typedef void (^blockParserCompleted) (DYArticle*) ;
 
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSData * content;
+@property (nonatomic, retain) NSArray * arrcontent;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSNumber * addToFavor;
+@property (nonatomic, copy) blockParserCompleted  selector;
+
++(instancetype) initWithUpdateSelector: (blockParserCompleted)selector;
 
 @end
+
+

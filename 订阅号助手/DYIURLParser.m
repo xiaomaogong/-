@@ -9,7 +9,8 @@
 #import "DYIURLParser.h"
 #import "NSMutableArray+QueueAdditions.h"
 #import <UIKit/UIKit.h>
-#define TimeOutSeconds 30
+#define TimeOutSeconds 10
+#define TimeInterval 1
 
 @implementation DYIURLParser
 {
@@ -19,6 +20,19 @@
     UIWebView* wv;
     NSThread* workThread;
     NSTimer* timer;
+    
+    id<DYURLParserDelegate> curentDataRequest;
+    BOOL isCurrentDataBack;
+}
+
++(DYIURLParser *) defaultInstance{
+    static DYIURLParser* singleton;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate , ^
+                  {
+                      singleton = [DYIURLParser new];
+                  });
+    return singleton;
 }
 
 - (instancetype)init
@@ -29,9 +43,12 @@
         wv = [UIWebView new];
         wv.delegate = self;
         workThread = [[NSThread alloc] initWithTarget:self selector:@selector(TryParseNext:) object:nil];
+        workThread.name = @"Main Parser Thread";
         [workThread start];
         
         NSLog(@"Main Parser Thread Start...");
+        
+        timer = [NSTimer scheduledTimerWithTimeInterval:TimeInterval target:self selector:@selector(OnTimerRequest:) userInfo:nil repeats:YES];
     }
     return self;
 }
@@ -41,44 +58,74 @@
     while(true)
     {
         [self ParseNext];
+       
     }
 }
 
 - (void) ParseNext
 {
-    if(![dataRequestlist empty])
-    {
-        id<DYURLParserDelegate> data = (id<DYURLParserDelegate>)[dataRequestlist peekHead];
-        lastParseTime = [NSDate date];
-        [wv loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[data GetURL]]]];
-        if(time == nil)
+    @synchronized(dataRequestlist){
+        if(![dataRequestlist empty])
         {
-            timer = [NSTimer scheduledTimerWithTimeInterval:TimeOutSeconds target:self selector:@selector(OnTimerRequest:) userInfo:nil repeats:true];
+            curentDataRequest = (id<DYURLParserDelegate>)[dataRequestlist dequeue];
+            lastParseTime = [NSDate date];
+            isCurrentDataBack = NO;
+            [wv loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[curentDataRequest GetURL]]]];
+//            if(timer == nil)
+//            {
+//                timer = [NSTimer scheduledTimerWithTimeInterval:TimeInterval target:self selector:@selector(OnTimerRequest:) userInfo:nil repeats:YES];
+//                
+//            }
+            
+            //Block until result is back
+            while (!isCurrentDataBack) {
+                
+            }
+            
         }
-        
     }
 }
 
 -(void) OnTimerRequest:(NSTimer *)timer
 {
-    if([lastParseTime timeIntervalSinceNow] > TimeOutSeconds)
+    if(fabs([lastParseTime timeIntervalSinceNow]) > TimeOutSeconds && !isCurrentDataBack)
     {
-        [self OnResult:@"Time out" isSuccessfull:false];
+        @synchronized(self){
+            [self OnResult:@"Time out" isSuccessfull:NO];
+            isCurrentDataBack = YES;
+            
+        }
     }
 }
 
 -(void) webViewDidFinishLoad:(UIWebView *)webView{
-    NSString * content = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerText.replace(/^\\s*[\\r\\n]/gm,'')"];
-    [self OnResult:content isSuccessfull:YES];
+    @synchronized(self){
+        NSLog(@"Successfully get result from %@",[curentDataRequest GetURL]);
+        
+        NSString * content = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerText.replace(/^\\s*[\\r\\n]/gm,'')"];
+        [self OnResult:content isSuccessfull:YES];
+        isCurrentDataBack = YES;
+    }
+}
+
+-(void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    @synchronized(self){
+        NSString* errorInfo = [NSString stringWithFormat:@"Fail to get result %@", error.userInfo];
+        [self OnResult: errorInfo isSuccessfull:NO];
+        isCurrentDataBack = YES;
+        NSLog(errorInfo);
+    }
 }
 
 -(void) Parse:(id<DYURLParserDelegate>) callBackDelegates{
-    
+    @synchronized(dataRequestlist)
+    {
+        [dataRequestlist enqueue:callBackDelegates];
+    }
 }
 
 -(void) OnResult: (NSString *) result isSuccessfull:(BOOL) isSuccessfull
 {
-    id<DYURLParserDelegate> request = (id<DYURLParserDelegate>)[dataRequestlist dequeue];
-    [request populateData:isSuccessfull data:result];
+    [curentDataRequest populateData:isSuccessfull data:result];
 }
 @end

@@ -13,8 +13,10 @@
 -(void)parse;
 -(void)populateData:(BOOL) isSuccessfull data:(NSString *) data;
 -(NSString *)GetURL;
+@property BOOL IsSuccess;
 @end
 
 @interface DYIURLParser : NSObject<UIWebViewDelegate>
 -(void) Parse:(id<DYURLParserDelegate>) callBackDelegates;
++(DYIURLParser *) defaultInstance;
 @end
