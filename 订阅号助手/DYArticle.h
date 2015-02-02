@@ -16,6 +16,8 @@
 
 typedef void (^blockParserCompleted) (DYArticle*) ;
 
+@property (nonatomic) BOOL isReaded;
+@property (nonatomic) NSInteger identifier;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSData * content;
 @property (nonatomic, retain) NSArray * arrcontent;

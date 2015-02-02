@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "DYArticle.h"
 
+@class DYPlayer;
+
 @protocol DYPlayerDelegate <NSObject>
 
-- (void) playingNext:(NSString *)content;
+- (void) player:(DYPlayer*)player willPlayNextContent:(NSString*)content;
 
 @end
 

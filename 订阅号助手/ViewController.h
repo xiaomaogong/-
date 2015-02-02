@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "View/CustomIOS7AlertView.h"
+#import "DYSongTableViewCell.h"
 
-@interface ViewController : UIViewController<CustomIOS7AlertViewDelegate>
+@interface ViewController : UIViewController<CustomIOS7AlertViewDelegate, DYSongTableViewCellDelegate,UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITableView *songTableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+@property(nonatomic, strong) NSMutableArray *songs;
 
 - (IBAction)addASong:(id)sender;
 

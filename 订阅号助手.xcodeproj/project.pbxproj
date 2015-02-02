@@ -17,6 +17,7 @@
 		DF3F8BE61A669DC700C7D0A4 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3F8BE51A669DC700C7D0A4 /* _____Tests.m */; };
 		DF54837F1A79E5100061524F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF54837E1A79E5100061524F /* MainViewController.m */; };
 		DF5483821A79FD920061524F /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5483811A79FD920061524F /* SidebarViewController.m */; };
+		DF66FB611A7E309000D3A4FE /* DYSongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF66FB601A7E309000D3A4FE /* DYSongTableViewCell.m */; };
 		DFB3BB6A1A6EA2680075626D /* DYPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB3BB691A6EA2680075626D /* DYPlayer.m */; };
 		DFB3BB6E1A6EA38B0075626D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFB3BB6C1A6EA38B0075626D /* Model.xcdatamodeld */; };
 		DFB3BB711A6EA4E10075626D /* DYArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB3BB701A6EA4E10075626D /* DYArticle.m */; };
@@ -56,6 +57,8 @@
 		DF54837E1A79E5100061524F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		DF5483801A79FD920061524F /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
 		DF5483811A79FD920061524F /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		DF66FB5F1A7E309000D3A4FE /* DYSongTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSongTableViewCell.h; sourceTree = "<group>"; };
+		DF66FB601A7E309000D3A4FE /* DYSongTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSongTableViewCell.m; sourceTree = "<group>"; };
 		DFB3BB681A6EA2680075626D /* DYPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYPlayer.h; sourceTree = "<group>"; };
 		DFB3BB691A6EA2680075626D /* DYPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYPlayer.m; sourceTree = "<group>"; };
 		DFB3BB6D1A6EA38B0075626D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 		DF3F8BBA1A669DC700C7D0A4 = {
 			isa = PBXGroup;
 			children = (
+				DF66FB5F1A7E309000D3A4FE /* DYSongTableViewCell.h */,
+				DF66FB601A7E309000D3A4FE /* DYSongTableViewCell.m */,
 				DFF4D7EC1A7A9194002E58E5 /* DYSettingViewController.h */,
 				DFF4D7ED1A7A9194002E58E5 /* DYSettingViewController.m */,
 				DF3F8BC51A669DC700C7D0A4 /* 订阅号助手 */,
@@ -323,6 +328,7 @@
 				DFFFB0C21A793EE000CC53CD /* SWRevealViewController.m in Sources */,
 				DFB3BB711A6EA4E10075626D /* DYArticle.m in Sources */,
 				DFF4D7EE1A7A9194002E58E5 /* DYSettingViewController.m in Sources */,
+				DF66FB611A7E309000D3A4FE /* DYSongTableViewCell.m in Sources */,
 				DFB3BB741A6EAFD20075626D /* DYIURLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

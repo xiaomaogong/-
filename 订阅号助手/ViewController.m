@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SWRevealViewController.h"
+#import "DYArticle.h"
 
 #import "DYArticle.h"
 #import "DYIURLParser.h"
@@ -25,7 +26,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     // Change button color
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     
@@ -37,11 +38,60 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     parser = [DYIURLParser defaultInstance];
+    
+    self.songs = [NSMutableArray array];
+    [self loadSongs];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)loadSongs
+{
+#if 0
+    /* 20150202 zl Test DYSongTableViewCell start */
+    DYArticle *article = [[DYArticle alloc] init];
+    //article.isReaded = FALSE;
+    //article.identifier = 0;
+    article.title = @"宝宝去哪儿了";
+    article.addToFavor = @1;
+    /* 20150202 zl Test DYSongTableViewCell end */
+#endif
+}
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //return [self.songs count];
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+#if 0
+    DYSongTableViewCell *cell = [DYSongTableViewCell initWithDYArticle:self.songs[indexPath.row] delegate:self];
+#endif
+    DYSongTableViewCell *cell = [DYSongTableViewCell initWithDYArticle:nil delegate:self tableView:tableView];
+    return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [self.songs removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 - (IBAction)addASong:(id)sender {
@@ -128,6 +178,14 @@
     [demoView addSubview:textView];
     
     return demoView;
+}
+
+- (void) cell:(DYSongTableViewCell*)cell didFavorOrNot:(BOOL)bFavor {
+    
+}
+
+- (void) cellDidPlaySong:(DYSongTableViewCell *)cell {
+    
 }
 
 @end
