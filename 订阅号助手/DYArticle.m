@@ -11,12 +11,12 @@
 
 @implementation DYArticle
 
-@dynamic title;
+//@dynamic title;
 //@dynamic content;
 //@dynamic url;
-@dynamic addToFavor;
+//@dynamic addToFavor;
 
-@synthesize selector,IsSuccess,url,content;
+@synthesize selector,IsSuccess,url,content,title,addToFavor,identifier,isReaded;
 
 -(void)setArrcontent:(NSArray *)arrcontent{
     if (arrcontent != nil) {
@@ -44,8 +44,12 @@
 
 -(void)populateData:(BOOL)isSuccessfull data:(NSString *)data
 {
+    static int identifier = 0;
     self.IsSuccess = isSuccessfull;
+    self.identifier = ++identifier;
     self.arrcontent =[data componentsSeparatedByString:@"\n"];
+    self.title = self.arrcontent[0];
+    self.addToFavor = @0;
     self.selector(self);
 }
 

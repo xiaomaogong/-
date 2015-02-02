@@ -23,6 +23,7 @@
 @implementation ViewController
 {
     DYIURLParser* parser;
+    UITableView* tv;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -63,8 +64,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return [self.songs count];
-    return 1;
+    if (tv == nil) {
+        tv = tableView;
+    }
+    return [self.songs count];
+//    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,7 +76,7 @@
 #if 0
     DYSongTableViewCell *cell = [DYSongTableViewCell initWithDYArticle:self.songs[indexPath.row] delegate:self];
 #endif
-    DYSongTableViewCell *cell = [DYSongTableViewCell initWithDYArticle:nil delegate:self tableView:tableView];
+    DYSongTableViewCell *cell = [DYSongTableViewCell initWithDYArticle:[self.songs objectAtIndex:indexPath.item] delegate:self tableView:tableView];
     return cell;
 }
 
@@ -158,7 +162,11 @@
 -(void) onSaveBittonClick:(NSString *) url{
     DYArticle* da = [DYArticle initWithUpdateSelector:^(DYArticle * result) {
         //Update UI logic here when data is back
-        [[[UIAlertView new] initWithTitle:result.IsSuccess ? @"成功结果": @"失败结果" message:result.arrcontent[0] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+//        [[[UIAlertView new] initWithTitle:result.IsSuccess ? @"成功结果": @"失败结果" message:result.arrcontent[0] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        if (result.IsSuccess) {
+            [self.songs addObject:result];
+            [tv reloadData];
+        }
     }];
     da.url = url;
     [parser Parse:da];

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M0S-pf-X7D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M0S-pf-X7D">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -100,8 +100,8 @@
                                                 <userLayoutGuide location="288" affinity="minX"/>
                                             </userGuides>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enw-YU-p2n">
-                                                    <rect key="frame" x="547" y="11" width="30" height="34"/>
+                                                <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enw-YU-p2n">
+                                                    <rect key="frame" x="547" y="11" width="30" height="32"/>
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -109,7 +109,7 @@
                                                         <action selector="favorSong:" destination="y12-Cn-UpX" eventType="touchUpInside" id="Hrf-Jn-70W"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLb-Gq-65t">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLb-Gq-65t">
                                                     <rect key="frame" x="22" y="12" width="417" height="42"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -118,18 +118,17 @@
                                                         <action selector="playSong:" destination="y12-Cn-UpX" eventType="touchUpInside" id="wmc-4X-sGd"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Music-Equalizer-32" translatesAutoresizingMaskIntoConstraints="NO" id="jwT-3S-NdE">
-                                                    <rect key="frame" x="512" y="4" width="27" height="49"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Music-Equalizer-32" translatesAutoresizingMaskIntoConstraints="NO" id="jwT-3S-NdE">
+                                                    <rect key="frame" x="507" y="12" width="32" height="32"/>
                                                     <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
                                                 </imageView>
                                             </subviews>
                                             <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
                                             <constraints>
-                                                <constraint firstItem="jwT-3S-NdE" firstAttribute="leading" secondItem="cLb-Gq-65t" secondAttribute="trailing" constant="73" id="CrV-OS-cfG"/>
+                                                <constraint firstAttribute="centerY" secondItem="jwT-3S-NdE" secondAttribute="centerY" constant="-6" id="6Ow-k5-S2M"/>
                                                 <constraint firstItem="Enw-YU-p2n" firstAttribute="leading" secondItem="jwT-3S-NdE" secondAttribute="trailing" constant="8" id="Emh-iV-vHa"/>
                                                 <constraint firstItem="Enw-YU-p2n" firstAttribute="top" secondItem="no1-sk-y7L" secondAttribute="topMargin" constant="3" id="HN2-fK-Xhh"/>
                                                 <constraint firstAttribute="trailing" secondItem="Enw-YU-p2n" secondAttribute="trailing" constant="3" id="TZQ-gb-elJ"/>
-                                                <constraint firstItem="jwT-3S-NdE" firstAttribute="top" secondItem="no1-sk-y7L" secondAttribute="top" constant="4" id="e9y-LL-p8Z"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Enw-YU-p2n" secondAttribute="trailing" constant="-5" id="p6L-Zl-lz0"/>
                                                 <constraint firstItem="cLb-Gq-65t" firstAttribute="top" secondItem="no1-sk-y7L" secondAttribute="top" constant="12" id="v3v-x8-upS"/>
                                                 <constraint firstItem="cLb-Gq-65t" firstAttribute="top" secondItem="no1-sk-y7L" secondAttribute="top" constant="12" id="w47-93-ErZ"/>
