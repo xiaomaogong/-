@@ -81,7 +81,7 @@
 }
 
 - (void)setPlayStatus:(BOOL)playStatus {
-    self.songPlayIcon.hidden = playStatus;
+    self.songPlayIcon.hidden = !playStatus;
     self.songPlayIcon.tag = playStatus;
 }
 
@@ -151,7 +151,7 @@
     }
     cell->delegate = delegate;
     
-//#if 0
+#if 0
     cell.identifier = article.identifier;
     [cell.songTitle setTitle:article.title forState:UIControlStateNormal];
     [cell setPlayStatus:false];
@@ -161,17 +161,19 @@
     } else {
         [cell unsetRedDot];
     }
-//#endif
-//    cell.identifier = 0;
-//    [cell.songTitle setTitle:@"123" forState:UIControlStateNormal];
-//    [cell setPlayStatus:FALSE];
-//    [cell setFavorStatus:TRUE];
-//    if (FALSE == FALSE) {
-//        [cell setRedDot];
-//    } else {
-//        [cell unsetRedDot];
-//    }
-
+#endif
+    
+#if 1
+    cell.identifier = 0;
+    [cell.songTitle setTitle:@"123" forState:UIControlStateNormal];
+    [cell setPlayStatus:FALSE];
+    [cell setFavorStatus:TRUE];
+    if (FALSE == FALSE) {
+        [cell setRedDot];
+    } else {
+        [cell unsetRedDot];
+    }
+#endif
     return cell;
 }
 

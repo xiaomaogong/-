@@ -64,6 +64,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    return 1;
     if (tv == nil) {
         tv = tableView;
     }
@@ -76,7 +77,7 @@
 #if 0
     DYSongTableViewCell *cell = [DYSongTableViewCell initWithDYArticle:self.songs[indexPath.row] delegate:self];
 #endif
-    DYSongTableViewCell *cell = [DYSongTableViewCell initWithDYArticle:[self.songs objectAtIndex:indexPath.item] delegate:self tableView:tableView];
+    DYSongTableViewCell *cell = [DYSongTableViewCell initWithDYArticle:nil delegate:self tableView:tableView];
     return cell;
 }
 
