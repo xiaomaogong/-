@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *favorButton;
 @property (nonatomic) NSInteger identifier;
 @property (nonatomic) BOOL isReaded;
+@property (retain, nonatomic) UIImageView *likeImageView, *unlikeImageView;
 
 - (IBAction)playSong:(id)sender;
 - (IBAction)favorSong:(id)sender;

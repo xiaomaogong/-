@@ -87,40 +87,26 @@
 
 - (void)setFavorStatus:(BOOL)favorStatus {
     self.favorButton.tag = favorStatus;
+    UIImageView *comingImageView = nil
+    , *goingImageView = nil;
     
     if (TRUE == favorStatus) {
-        UIImageView *strechTest = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"like_heart.png"]];
-        [strechTest setContentStretch:CGRectMake(0.5f, 0.5f, 0.f, 0.f)];
-        CGRect frame = strechTest.frame;
-        frame.size.width -= 30;
-        frame.size.height -= 20;
-        strechTest.frame = frame;
-        
-        //把imageView放入button中，并设置为back
-        UIButton *button1 = self.favorButton;
-        button1.frame = frame;
-        button1.center = CGPointMake(10, 10);
-        [button1 addSubview:strechTest];
-        [button1 bringSubviewToFront:strechTest];
-        //[button1 sendSubviewToBack:strechTest];
-        //[button1 setBackgroundColor:[UIColor clearColor]];
+        comingImageView = self.likeImageView;
+        goingImageView = self.unlikeImageView;
     } else {
-        UIImageView *strechTest = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"unlike_heart.png"]];
-        [strechTest setContentStretch:CGRectMake(0.5f, 0.5f, 0.f, 0.f)];
-        CGRect frame = strechTest.frame;
-        frame.size.width -= 30;
-        frame.size.height -= 20;
-        strechTest.frame = frame;
-        
-        //把imageView放入button中，并设置为back
-        UIButton *button1 = self.favorButton;
-        button1.frame = frame;
-        button1.center = CGPointMake(10, 10);
-        [button1 addSubview:strechTest];
-        [button1 bringSubviewToFront:strechTest];
-        //[button1 sendSubviewToBack:strechTest];
-        //[button1 setBackgroundColor:[UIColor clearColor]];
+        comingImageView = self.unlikeImageView;
+        goingImageView = self.likeImageView;
     }
+    
+    if ([self.favorButton.subviews count] == 0) {
+        goingImageView = nil;
+    } else {
+        [goingImageView removeFromSuperview];
+    }
+    
+    self.favorButton.frame = comingImageView.frame;
+    //self.favorButton.center = CGPointMake(10, 10);
+    [self.favorButton insertSubview:comingImageView atIndex:0];
 }
 
 - (void)changeFavorStatus {
@@ -143,6 +129,24 @@
     [self->delegate cellDidPlaySong:self];
 }
 
+- (void)initImages {
+    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"like_heart.png"]];
+    [image setContentStretch:CGRectMake(0.5f, 0.5f, 0.f, 0.f)];
+    CGRect frame = image.frame;
+    frame.size.width -= 30;
+    frame.size.height -= 20;
+    image.frame = frame;
+    self.likeImageView = image;
+    
+    image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"unlike_heart.png"]];
+    [image setContentStretch:CGRectMake(0.5f, 0.5f, 0.f, 0.f)];
+    frame = image.frame;
+    frame.size.width -= 30;
+    frame.size.height -= 20;
+    image.frame = frame;
+    self.unlikeImageView = image;
+}
+
 +(instancetype) initWithDYArticle: (DYArticle*) article delegate:(id<DYSongTableViewCellDelegate>) delegate tableView:(UITableView*)tableView {
     static NSString *CellIdentifier = @"songCell";
     DYSongTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -150,7 +154,7 @@
         cell = [[DYSongTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     cell->delegate = delegate;
-    
+    [cell initImages];
 #if 0
     cell.identifier = article.identifier;
     [cell.songTitle setTitle:article.title forState:UIControlStateNormal];

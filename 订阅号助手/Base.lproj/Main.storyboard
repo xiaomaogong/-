@@ -96,15 +96,15 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y12-Cn-UpX" id="no1-sk-y7L">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Music-Equalizer-32" translatesAutoresizingMaskIntoConstraints="NO" id="jwT-3S-NdE">
-                                                    <rect key="frame" x="494" y="7" width="40" height="32"/>
+                                                <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Music-Equalizer-32" translatesAutoresizingMaskIntoConstraints="NO" id="jwT-3S-NdE">
+                                                    <rect key="frame" x="512" y="7" width="32" height="32"/>
                                                     <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="UYn-6b-90q"/>
+                                                        <constraint firstAttribute="width" constant="32" id="UYn-6b-90q"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLb-Gq-65t">
-                                                    <rect key="frame" x="20" y="7" width="464" height="30"/>
+                                                    <rect key="frame" x="20" y="7" width="482" height="30"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -113,9 +113,9 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="center" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enw-YU-p2n">
-                                                    <rect key="frame" x="539" y="5" width="40" height="34"/>
+                                                    <rect key="frame" x="549" y="5" width="30" height="34"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="Drt-30-qBD"/>
+                                                        <constraint firstAttribute="width" constant="30" id="Drt-30-qBD"/>
                                                     </constraints>
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -127,7 +127,7 @@
                                             </subviews>
                                             <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="jwT-3S-NdE" secondAttribute="centerY" constant="-1.25" id="Gmc-0V-ztO"/>
+                                                <constraint firstAttribute="centerY" secondItem="jwT-3S-NdE" secondAttribute="centerY" constant="-1" id="Gmc-0V-ztO"/>
                                                 <constraint firstAttribute="trailing" secondItem="Enw-YU-p2n" secondAttribute="trailing" constant="1" id="M8j-h8-03Y"/>
                                                 <constraint firstItem="jwT-3S-NdE" firstAttribute="leading" secondItem="cLb-Gq-65t" secondAttribute="trailing" constant="10" id="Mh6-tj-PNm"/>
                                                 <constraint firstItem="Enw-YU-p2n" firstAttribute="leading" secondItem="jwT-3S-NdE" secondAttribute="trailing" constant="5" id="Mpd-w2-mSW"/>
