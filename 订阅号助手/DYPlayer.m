@@ -7,7 +7,59 @@
 //
 
 #import "DYPlayer.h"
+#import "DYSpeeker.h"
 
 @implementation DYPlayer
+{
+    NSArray* currentArticle;
+    int currentPlayingIndex;
+    DYSpeeker* speeker;
+}
+@synthesize Delegate = notifier;
 
++(instancetype) initWithPlayerDelegate: (id<DYPlayerDelegate>) dyplayerDelegate{
+    DYPlayer* player = [DYPlayer new];
+    player.Delegate = dyplayerDelegate;
+    return  player;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        speeker = [DYSpeeker new];
+    }
+    return self;
+}
+
+-(void) setCurrentData: (NSArray*) data{
+    currentArticle = data;
+}
+
+-(void) play{
+    [self play:currentPlayingIndex];
+}
+
+-(void) play:(int) index{
+    
+    if(currentArticle != nil && index <= [currentArticle count])
+    {
+        currentPlayingIndex = index;
+        [speeker play:currentArticle[index]];
+    }
+}
+
+-(void) stop{
+    if(currentArticle != nil){
+        [speeker stop];
+    }
+}
+
+-(void) playNext{
+    [self play:currentPlayingIndex +1];
+}
+
+-(void) playPrevious{
+    [self play:currentPlayingIndex -1];
+}
 @end

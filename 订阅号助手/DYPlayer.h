@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DYArticle.h"
 
 @class DYPlayer;
 
@@ -18,9 +17,9 @@
 @end
 
 @interface DYPlayer : NSObject
-
+@property(nonatomic,retain) id<DYPlayerDelegate> Delegate;
 +(instancetype) initWithPlayerDelegate: (id<DYPlayerDelegate>) dyplayerDelegate;
--(void) setCurrentArticle: (DYArticle*) article;
+-(void) setCurrentData: (NSArray*) data;
 -(void) play;
 -(void) play:(int) index;
 -(void) stop;

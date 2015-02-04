@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF10B50B1A825CE800C3A29E /* DYSpeeker.m in Sources */ = {isa = PBXBuildFile; fileRef = DF10B50A1A825CE800C3A29E /* DYSpeeker.m */; };
 		DF3F8BC91A669DC700C7D0A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3F8BC81A669DC700C7D0A4 /* main.m */; };
 		DF3F8BCC1A669DC700C7D0A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3F8BCB1A669DC700C7D0A4 /* AppDelegate.m */; };
 		DF3F8BCF1A669DC700C7D0A4 /* _____.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF3F8BCD1A669DC700C7D0A4 /* _____.xcdatamodeld */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF10B5091A825CE800C3A29E /* DYSpeeker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSpeeker.h; sourceTree = "<group>"; };
+		DF10B50A1A825CE800C3A29E /* DYSpeeker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSpeeker.m; sourceTree = "<group>"; };
 		DF3F8BC31A669DC700C7D0A4 /* 订阅号助手.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "订阅号助手.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3F8BC71A669DC700C7D0A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF3F8BC81A669DC700C7D0A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 			children = (
 				DFB3BB681A6EA2680075626D /* DYPlayer.h */,
 				DFB3BB691A6EA2680075626D /* DYPlayer.m */,
+				DF10B5091A825CE800C3A29E /* DYSpeeker.h */,
+				DF10B50A1A825CE800C3A29E /* DYSpeeker.m */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 			files = (
 				DF5483821A79FD920061524F /* SidebarViewController.m in Sources */,
 				DFEAAB3F1A7744AE0054719D /* CustomIOS7AlertView.m in Sources */,
+				DF10B50B1A825CE800C3A29E /* DYSpeeker.m in Sources */,
 				DFE59C6C1A77C689004233FA /* NSMutableArray+QueueAdditions.m in Sources */,
 				DF3F8BCC1A669DC700C7D0A4 /* AppDelegate.m in Sources */,
 				DF3F8BCF1A669DC700C7D0A4 /* _____.xcdatamodeld in Sources */,

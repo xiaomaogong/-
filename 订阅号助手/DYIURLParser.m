@@ -113,7 +113,7 @@
         NSString* errorInfo = [NSString stringWithFormat:@"Fail to get result %@", error.userInfo];
         [self OnResult: errorInfo isSuccessfull:NO];
         isCurrentDataBack = YES;
-        NSLog(errorInfo);
+        NSLog(@"%@", errorInfo);
     }
 }
 
