@@ -39,7 +39,7 @@
     self = [super init];
     if (self) {
         speeker = [DYSpeeker new];
-        [speeker setDelegate:speeker];
+        [speeker setDelegate:self];
     }
     return self;
 }
@@ -56,7 +56,7 @@
     
     if(currentArticle != nil && index <= [currentArticle count])
     {
-        currentPlayingIndex = index;
+        currentPlayingIndex = index + 1;
         [speeker play:currentArticle[index]];
     }
 }

@@ -31,8 +31,8 @@
 {
     self = [super init];
     if (self) {
-//        voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CH"];
-        voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-GB"];
+        voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CH"];
+//        voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-GB"];
         syther =[AVSpeechSynthesizer new];
         AVSpeechUtterance *bugWorkaroundUtterance = [AVSpeechUtterance speechUtteranceWithString:@" "];
         bugWorkaroundUtterance.rate = AVSpeechUtteranceMaximumSpeechRate;
