@@ -12,19 +12,21 @@
 
 #import "DYArticle.h"
 #import "DYIURLParser.h"
+#import "DYSongTableViewCell.h"
 
 #define INPUT_WEBPATH_SAVE      0
 #define INPUT_WEBPATh_CANCEL    1
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController
 {
     DYIURLParser* parser;
     UITableView* tv;
+    DYSongTableViewCell* playingCell;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -41,6 +43,7 @@
     parser = [DYIURLParser defaultInstance];
     
     self.songs = [NSMutableArray array];
+    self->playingCell = nil;
     [self loadSongs];
 }
 
@@ -64,20 +67,22 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    //return 1;
     if (tv == nil) {
         tv = tableView;
     }
     return [self.songs count];
-//    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-#if 0
-    DYSongTableViewCell *cell = [DYSongTableViewCell initWithDYArticle:self.songs[indexPath.row] delegate:self];
+#if 1
+    DYSongTableViewCell *cell = [DYSongTableViewCell initWithDYArticle:self.songs[indexPath.row] delegate:self tableView:tableView];
 #endif
+    
+#if 0
     DYSongTableViewCell *cell = [DYSongTableViewCell initWithDYArticle:nil delegate:self tableView:tableView];
+#endif
     return cell;
 }
 
@@ -162,8 +167,6 @@
 
 -(void) onSaveBittonClick:(NSString *) url{
     DYArticle* da = [DYArticle initWithUpdateSelector:^(DYArticle * result) {
-        //Update UI logic here when data is back
-//        [[[UIAlertView new] initWithTitle:result.IsSuccess ? @"成功结果": @"失败结果" message:result.arrcontent[0] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
         if (result.IsSuccess) {
             [self.songs addObject:result];
             [tv reloadData];
@@ -194,7 +197,18 @@
 }
 
 - (void) cellDidPlaySong:(DYSongTableViewCell *)cell {
+    if (nil != cell) {
+        [playingCell stopSong];
+    }
+    playingCell = cell;
     
+    /// TODO:Need Play API
+}
+
+- (void) cellDidStopSong:(DYSongTableViewCell *)cell {
+    playingCell = nil;
+    
+    /// TODO:Need Play API
 }
 
 @end

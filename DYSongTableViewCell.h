@@ -21,6 +21,7 @@
 @protocol DYSongTableViewCellDelegate <NSObject>
 - (void) cell:(DYSongTableViewCell*)cell didFavorOrNot:(BOOL)bFavor;
 - (void) cellDidPlaySong:(DYSongTableViewCell *)cell;
+- (void) cellDidStopSong:(DYSongTableViewCell *)cell;
 @end
 
 @interface DYSongTableViewCell : UITableViewCell
@@ -34,6 +35,7 @@
 
 - (IBAction)playSong:(id)sender;
 - (IBAction)favorSong:(id)sender;
+- (void)stopSong;
 
 +(instancetype) initWithDYArticle: (DYArticle*) article delegate:(id<DYSongTableViewCellDelegate>) delegate tableView:(UITableView*)tableView;
 

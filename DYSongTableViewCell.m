@@ -155,7 +155,7 @@
     }
     cell->delegate = delegate;
     [cell initImages];
-#if 0
+#if 1
     cell.identifier = article.identifier;
     [cell.songTitle setTitle:article.title forState:UIControlStateNormal];
     [cell setPlayStatus:false];
@@ -167,7 +167,7 @@
     }
 #endif
     
-#if 1
+#if 0
     cell.identifier = 0;
     [cell.songTitle setTitle:@"123" forState:UIControlStateNormal];
     [cell setPlayStatus:FALSE];
@@ -179,6 +179,11 @@
     }
 #endif
     return cell;
+}
+
+- (void)stopSong {
+    [self setPlayStatus:FALSE];
+    [self->delegate cellDidStopSong:self];
 }
 
 @end

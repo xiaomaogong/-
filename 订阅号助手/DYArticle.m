@@ -34,7 +34,7 @@
 
 +(instancetype) initWithUpdateSelector: (blockParserCompleted)selector{
     DYArticle *dy = [DYArticle new];
-    dy.selector =  selector;
+    dy.selector = selector;
     return dy;
 }
 
