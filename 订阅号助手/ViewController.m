@@ -13,6 +13,7 @@
 #import "DYArticle.h"
 #import "DYIURLParser.h"
 #import "DYSongTableViewCell.h"
+#import "DYPlayer.h"
 
 #define INPUT_WEBPATH_SAVE      0
 #define INPUT_WEBPATh_CANCEL    1
@@ -23,6 +24,7 @@
 @implementation ViewController
 {
     DYIURLParser* parser;
+    DYPlayer* player;
     UITableView* tv;
     DYSongTableViewCell* playingCell;
 }
@@ -41,6 +43,7 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     parser = [DYIURLParser defaultInstance];
+    player = [DYPlayer defaultInstance];
     
     self.songs = [NSMutableArray array];
     self->playingCell = nil;
@@ -148,13 +151,13 @@
 - (void)customIOS7dialogButtonTouchUpInside: (CustomIOS7AlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
 {
 //    NSLog(@"Delegate: Button at position %d is clicked on alertView %d.", (int)buttonIndex, (int)[alertView tag]);
-    UITextView* tv  = ((UITextView *)alertView.containerView.subviews[1]);
-    if(!tv.hasText)
+    UITextView* textView  = ((UITextView *)alertView.containerView.subviews[1]);
+    if(!textView.hasText)
         return;
 
     switch (buttonIndex) {
         case INPUT_WEBPATH_SAVE:
-            [self onSaveBittonClick:tv.text];
+            [self onSaveBittonClick:textView.text];
             break;
         case INPUT_WEBPATh_CANCEL:
             break;
@@ -203,6 +206,27 @@
     playingCell = cell;
     
     /// TODO:Need Play API
+    DYArticle * a = [self getArticalByIdentify:playingCell.identifier];
+    if(a != nil)
+    {
+        [player setCurrentData:a.arrcontent];
+        [player play];
+    }
+}
+
+-(DYArticle*)getArticalByIdentify:(long)indentifier{
+    DYArticle* result = nil;
+    if(self.songs != nil){
+      NSInteger index =  [self.songs indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+            if (((DYArticle *)obj).identifier == indentifier) {
+                *stop = YES;
+                return YES;
+            }
+            return NO;
+        }];
+        result = self.songs[index];
+    }
+    return  result;
 }
 
 - (void) cellDidStopSong:(DYSongTableViewCell *)cell {

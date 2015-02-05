@@ -44,9 +44,9 @@
 
 -(void)populateData:(BOOL)isSuccessfull data:(NSString *)data
 {
-    static int identifier = 0;
+    static int identifiers = 0;
     self.IsSuccess = isSuccessfull;
-    self.identifier = ++identifier;
+    self.identifier = ++identifiers;
     self.arrcontent =[data componentsSeparatedByString:@"\n"];
     self.title = self.arrcontent[0];
     self.addToFavor = @0;

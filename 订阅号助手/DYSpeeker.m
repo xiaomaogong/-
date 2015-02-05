@@ -31,9 +31,17 @@
 {
     self = [super init];
     if (self) {
-        voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CH"];
+//        voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CH"];
+        voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-GB"];
         syther =[AVSpeechSynthesizer new];
+        AVSpeechUtterance *bugWorkaroundUtterance = [AVSpeechUtterance speechUtteranceWithString:@" "];
+        bugWorkaroundUtterance.rate = AVSpeechUtteranceMaximumSpeechRate;
+        [syther speakUtterance:bugWorkaroundUtterance];
     }
     return self;
+}
+
+-(void)setDelegate:(id) delegate{
+    syther.delegate = delegate;
 }
 @end

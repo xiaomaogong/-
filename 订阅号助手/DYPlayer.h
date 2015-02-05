@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @class DYPlayer;
 
@@ -16,9 +17,10 @@
 
 @end
 
-@interface DYPlayer : NSObject
+@interface DYPlayer : NSObject<AVSpeechSynthesizerDelegate>
 @property(nonatomic,retain) id<DYPlayerDelegate> Delegate;
 +(instancetype) initWithPlayerDelegate: (id<DYPlayerDelegate>) dyplayerDelegate;
++(DYPlayer *) defaultInstance;
 -(void) setCurrentData: (NSArray*) data;
 -(void) play;
 -(void) play:(int) index;

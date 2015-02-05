@@ -8,6 +8,7 @@
 
 #import "DYPlayer.h"
 #import "DYSpeeker.h"
+#import <AVFoundation/AVFoundation.h>
 
 @implementation DYPlayer
 {
@@ -23,11 +24,22 @@
     return  player;
 }
 
++(DYPlayer *) defaultInstance{
+    static DYPlayer* singleton;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate , ^
+                  {
+                      singleton = [DYPlayer new];
+                  });
+    return singleton;
+}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         speeker = [DYSpeeker new];
+        [speeker setDelegate:speeker];
     }
     return self;
 }
@@ -61,5 +73,10 @@
 
 -(void) playPrevious{
     [self play:currentPlayingIndex -1];
+}
+
+#pragma AVSpeechUtterance Delegate methods
+-(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance{
+    [self play];
 }
 @end
