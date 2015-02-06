@@ -11,5 +11,7 @@
 @interface DYSpeeker : NSObject
 -(void)play:(NSString*)content;
 -(void)stop;
+-(void)pause;
+-(void)resume;
 -(void)setDelegate:(id) delegate;
 @end

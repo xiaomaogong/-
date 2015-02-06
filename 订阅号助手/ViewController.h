@@ -10,11 +10,14 @@
 
 #import "View/CustomIOS7AlertView.h"
 #import "DYSongTableViewCell.h"
+#import "DYPlayer.h"
 
-@interface ViewController : UIViewController<CustomIOS7AlertViewDelegate, DYSongTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface ViewController : UIViewController<CustomIOS7AlertViewDelegate, DYSongTableViewCellDelegate, DYPlayerDelegate ,UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property(nonatomic, strong) NSMutableArray *songs;
+
+@property (weak, nonatomic) IBOutlet UISlider *slider;
 
 - (IBAction)addASong:(id)sender;
 

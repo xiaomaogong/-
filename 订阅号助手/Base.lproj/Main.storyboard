@@ -196,6 +196,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="sidebarButton" destination="wmg-cG-tmi" id="Bu1-TI-DlW"/>
+                        <outlet property="slider" destination="BOq-3E-byL" id="a6X-G7-zAG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

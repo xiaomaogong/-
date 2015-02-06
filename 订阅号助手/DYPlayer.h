@@ -15,7 +15,10 @@
 
 - (void) player:(DYPlayer*)player willPlayNextContent:(NSString*)content;
 
+- (void) playerDidFinishedPlayContent:(DYPlayer *)player;
+
 @end
+
 
 @interface DYPlayer : NSObject<AVSpeechSynthesizerDelegate>
 @property(nonatomic,retain) id<DYPlayerDelegate> Delegate;

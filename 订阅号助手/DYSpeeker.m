@@ -24,7 +24,15 @@
 }
 
 -(void)stop{
-    [syther pauseSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+    [syther stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+}
+
+-(void)resume{
+    
+}
+
+-(void)pause{
+    
 }
 
 - (instancetype)init
@@ -32,11 +40,7 @@
     self = [super init];
     if (self) {
         voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CH"];
-//        voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-GB"];
         syther =[AVSpeechSynthesizer new];
-        AVSpeechUtterance *bugWorkaroundUtterance = [AVSpeechUtterance speechUtteranceWithString:@" "];
-        bugWorkaroundUtterance.rate = AVSpeechUtteranceMaximumSpeechRate;
-        [syther speakUtterance:bugWorkaroundUtterance];
     }
     return self;
 }

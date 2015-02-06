@@ -10,11 +10,20 @@
 #import "DYSpeeker.h"
 #import <AVFoundation/AVFoundation.h>
 
+typedef enum : NSUInteger {
+    Initialized,
+    Playing,
+    Paused,
+    Finished
+} DYPlayerState;
+
+
 @implementation DYPlayer
 {
     NSArray* currentArticle;
     int currentPlayingIndex;
     DYSpeeker* speeker;
+    DYPlayerState state;
 }
 @synthesize Delegate = notifier;
 
@@ -46,6 +55,7 @@
 
 -(void) setCurrentData: (NSArray*) data{
     currentArticle = data;
+    state = Initialized;
 }
 
 -(void) play{
@@ -54,16 +64,28 @@
 
 -(void) play:(int) index{
     
-    if(currentArticle != nil && index <= [currentArticle count])
+    if(currentArticle != nil && index < [currentArticle count])
     {
+        if (state == Playing) {
+            [speeker stop];
+        }
         currentPlayingIndex = index + 1;
-        [speeker play:currentArticle[index]];
+        NSString* content = currentArticle[index];
+        if(notifier != nil)
+            [notifier player:self willPlayNextContent:content];
+        [speeker play:content];
+        state = Playing;
+    }else if (currentArticle != nil && index == [currentArticle count]){
+        state = Finished;
+        if(notifier != nil)
+            [notifier playerDidFinishedPlayContent:self];
     }
 }
 
 -(void) stop{
     if(currentArticle != nil){
         [speeker stop];
+        state = Paused;
     }
 }
 
@@ -72,11 +94,15 @@
 }
 
 -(void) playPrevious{
-    [self play:currentPlayingIndex -1];
+    [self play:currentPlayingIndex -2];
 }
 
 #pragma AVSpeechUtterance Delegate methods
 -(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance{
     [self play];
+}
+
+-(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance *)utterance{
+    state = Paused;
 }
 @end

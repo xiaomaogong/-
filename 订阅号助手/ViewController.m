@@ -44,6 +44,7 @@
     
     parser = [DYIURLParser defaultInstance];
     player = [DYPlayer defaultInstance];
+    [player setDelegate:self];
     
     self.songs = [NSMutableArray array];
     self->playingCell = nil;
@@ -114,15 +115,21 @@
 }
 
 - (IBAction)locatePositionOfSong:(id)sender {
+    int index = (int)self.slider.value;
+    NSLog(@"UISlider Locate at %i" ,index);
+    [player play:index];
 }
 
 - (IBAction)playSong:(id)sender {
+    [player play];
 }
 
 - (IBAction)playPreviousSong:(id)sender {
+    [player playPrevious];
 }
 
 - (IBAction)playNextSong:(id)sender {
+    [player playNext];
 }
 
 - (IBAction)lauchDialog:(id)sender {
@@ -210,6 +217,8 @@
     if(a != nil)
     {
         [player setCurrentData:a.arrcontent];
+        self.slider.minimumValue = 0.0;
+        self.slider.maximumValue = a.arrcontent.count;
         [player play];
     }
 }
@@ -233,6 +242,18 @@
     playingCell = nil;
     
     /// TODO:Need Play API
+   
+}
+
+#pragma DYPlayerDelegate
+
+-(void)player:(DYPlayer *)player willPlayNextContent:(NSString *)content{
+    NSLog(@"Will play : %@", content);
+}
+
+-(void)playerDidFinishedPlayContent:(DYPlayer *)player{
+    
+    NSLog(@"Finished read current artical!");
 }
 
 @end
