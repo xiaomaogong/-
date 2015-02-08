@@ -99,6 +99,9 @@
 }
 
 -(void) webViewDidFinishLoad:(UIWebView *)webView{
+    if (webView.loading) {
+        return;
+    }
     @synchronized(self){
         NSLog(@"Successfully get result from %@",[curentDataRequest GetURL]);
         
