@@ -70,14 +70,14 @@
     CGRect positionFrame = CGRectMake(10,10,10,10);
     RedCircleView * circleView = [[RedCircleView alloc] initWithFrame:positionFrame];
     [self.contentView addSubview:circleView];
-    self.isReaded = FALSE;
+    self.isReaded = NO;
 }
 
 - (void)unsetRedDot {
     CGRect positionFrame = CGRectMake(10,10,10,10);
     ClearCircleView * circleView = [[ClearCircleView alloc] initWithFrame:positionFrame];
     [self.contentView addSubview:circleView];
-    self.isReaded = TRUE;
+    self.isReaded = YES;
 }
 
 - (void)setPlayStatus:(BOOL)playStatus {
@@ -90,7 +90,7 @@
     UIImageView *comingImageView = nil
     , *goingImageView = nil;
     
-    if (TRUE == favorStatus) {
+    if (YES == favorStatus) {
         comingImageView = self.likeImageView;
         goingImageView = self.unlikeImageView;
     } else {
@@ -124,7 +124,7 @@
 }
 
 - (IBAction)playSong:(id)sender {
-    [self setPlayStatus:TRUE];
+    [self setPlayStatus:YES];
     [self unsetRedDot];
     [self->delegate cellDidPlaySong:self];
 }
@@ -155,34 +155,21 @@
     }
     cell->delegate = delegate;
     [cell initImages];
-#if 1
     cell.identifier = article.identifier;
     [cell.songTitle setTitle:article.title forState:UIControlStateNormal];
-    [cell setPlayStatus:false];
-    [cell setFavorStatus:article.addToFavor > 0 ? TRUE : FALSE];
-    if (FALSE == article.isReaded) {
+    [cell setPlayStatus:NO];
+    [cell setFavorStatus:[article.addToFavor intValue] > 0 ? YES : NO];
+    if (NO == article.isReaded) {
         [cell setRedDot];
     } else {
         [cell unsetRedDot];
     }
-#endif
     
-#if 0
-    cell.identifier = 0;
-    [cell.songTitle setTitle:@"123" forState:UIControlStateNormal];
-    [cell setPlayStatus:FALSE];
-    [cell setFavorStatus:TRUE];
-    if (FALSE == FALSE) {
-        [cell setRedDot];
-    } else {
-        [cell unsetRedDot];
-    }
-#endif
     return cell;
 }
 
 - (void)stopSong {
-    [self setPlayStatus:FALSE];
+    [self setPlayStatus:NO];
     [self->delegate cellDidStopSong:self];
 }
 

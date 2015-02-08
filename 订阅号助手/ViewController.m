@@ -53,15 +53,6 @@
 
 - (void)loadSongs
 {
-#if 0
-    /* 20150202 zl Test DYSongTableViewCell start */
-    DYArticle *article = [[DYArticle alloc] init];
-    //article.isReaded = FALSE;
-    //article.identifier = 0;
-    article.title = @"宝宝去哪儿了";
-    article.addToFavor = @1;
-    /* 20150202 zl Test DYSongTableViewCell end */
-#endif
 }
 
 - (void)didReceiveMemoryWarning
@@ -143,11 +134,6 @@
     [alertView setButtonTitles:[NSMutableArray arrayWithObjects:@"Save", @"Cancel", nil]];
     [alertView setDelegate:self];
     
-    // You may use a Block, rather than a delegate.
-//    [alertView setOnButtonTouchUpInside:^(CustomIOS7AlertView *alertView, int buttonIndex) {
-//        NSLog(@"Block: Button at position %d is clicked on alertView %d.", buttonIndex, (int)[alertView tag]);
-//        //[alertView close];
-//    }];
     
     [alertView setUseMotionEffects:true];
     
@@ -159,11 +145,11 @@
 {
 //    NSLog(@"Delegate: Button at position %d is clicked on alertView %d.", (int)buttonIndex, (int)[alertView tag]);
     UITextView* textView  = ((UITextView *)alertView.containerView.subviews[1]);
-    if(!textView.hasText)
-        return;
 
     switch (buttonIndex) {
         case INPUT_WEBPATH_SAVE:
+            if(!textView.hasText)
+                break;
             [self onSaveBittonClick:textView.text];
             break;
         case INPUT_WEBPATh_CANCEL:
@@ -190,12 +176,11 @@
 - (UIView *)createDemoView
 {
     UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 290, 200)];
-    
-    NSInteger titleHeight = 40;
+    NSInteger titleHeight = 30;
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 270, titleHeight)];
     [title setText:@"输入WEB地址"];
-    [title setBackgroundColor:[UIColor lightGrayColor]];
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 10+titleHeight, 270, 180)];
+    title.textAlignment = UITextAlignmentCenter;
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 10+titleHeight, 270, 170)];
     [demoView addSubview:title];
     [demoView addSubview:textView];
     
